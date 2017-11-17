@@ -20,7 +20,7 @@ class HelloController {
 //  }
 
   // get请求方式
-  @RequestMapping("/")
+  @RequestMapping("/hello")
   fun hello(@RequestParam(defaultValue = "Wu",value = "name") userName: String, model: Model): String {
     model.addAttribute("message", "Hello $userName")
     return "resultPage"
