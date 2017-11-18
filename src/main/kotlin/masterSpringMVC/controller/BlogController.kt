@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletRequest
 @Controller
 class BlogController {
 
-  @RequestMapping(value = "/blog")
+  @RequestMapping(value = "/")
   fun home(): String = "searchPage"
 
-  @RequestMapping("/blog/searchResult")
+  @RequestMapping("/searchResult")
   fun getSearch(@RequestParam(defaultValue = "masterSpringMVC4", value = "search") search: String, model: Model): String {
     val msgs = SearchData.getSearchResults(search)
     model.addAttribute("msgs", msgs)
@@ -23,12 +23,12 @@ class BlogController {
     return "resultPage"
   }
 
-  @RequestMapping(value = "/blog/postSearch", method = arrayOf(RequestMethod.POST))
+  @RequestMapping(value = "/postSearch", method = arrayOf(RequestMethod.POST))
   fun postSearch(request: HttpServletRequest, redirectAttributes: RedirectAttributes): String {
     val search = request.getParameter("search")
     if (search.toLowerCase().contains("struts")) {
       redirectAttributes.addFlashAttribute("error", "Try using spring instead")
-      return "redirect:/blog"
+      return "redirect:/"
     }
     redirectAttributes.addAttribute("search", search)
     return "redirect:searchResult"

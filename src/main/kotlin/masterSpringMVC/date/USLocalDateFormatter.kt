@@ -1,4 +1,4 @@
-package masterSpringMVC.dates
+package masterSpringMVC.date
 
 import org.springframework.format.Formatter
 import java.time.LocalDate
