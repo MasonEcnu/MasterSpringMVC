@@ -43,7 +43,7 @@
       <button class="btn teal" type="submit" name="addTaste" th:text="#{add.taste}">
         <i class="mdi-content-add left"></i>
       </button>
-      <div th:errors="*{tastes}" class="red-text">Error</div>
+      <div th:errors="*{tastes}" class="green-text">Error</div>
       <div class="row" th:each="row,rowStat : *{tastes}">
         <div class="col s6">
           <input type="text" required="required" th:field="*{tastes[__${rowStat.index}__]}" th:placeholder="#{taste.placeholder}"/>

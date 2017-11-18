@@ -37,6 +37,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.webjars:materializecss:0.100.2')
     compile('org.webjars:jquery:3.2.1')
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.41'
     compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
     compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     testCompile('org.springframework.boot:spring-boot-starter-test')
