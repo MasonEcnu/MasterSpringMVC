@@ -1,13 +1,9 @@
 package masterSpringMVC.config
 
-import com.alibaba.fastjson.serializer.SerializerFeature
-import com.alibaba.fastjson.support.config.FastJsonConfig
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter
 import masterSpringMVC.date.USLocalDateFormatter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.format.FormatterRegistry
-import org.springframework.http.converter.HttpMessageConverter
 import org.springframework.web.servlet.LocaleResolver
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter

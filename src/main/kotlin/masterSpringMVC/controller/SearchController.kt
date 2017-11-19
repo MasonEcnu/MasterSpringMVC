@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
 import javax.servlet.http.HttpServletRequest
 
 @Controller
-class BlogController {
+class SearchController {
 
   @RequestMapping(value = "/")
   fun home(): String = "searchPage"

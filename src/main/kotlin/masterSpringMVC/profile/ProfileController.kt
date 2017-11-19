@@ -1,4 +1,4 @@
-package masterSpringMVC.controller
+package masterSpringMVC.profile
 
 import masterSpringMVC.date.USLocalDateFormatter
 import masterSpringMVC.model.ProfileForm

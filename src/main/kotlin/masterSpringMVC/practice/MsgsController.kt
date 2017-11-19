@@ -1,4 +1,4 @@
-package masterSpringMVC.controller
+package masterSpringMVC.practice
 
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
