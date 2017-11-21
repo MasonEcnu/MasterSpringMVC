@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/default">
 <head>
-  <meta charset="UTF-8"/>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
   <title th:text="#{resultTitle}"></title>
   <link href="/webjars/materializecss/0.100.2/css/materialize.css" type="text/css" rel="stylesheet"
         media="screen,projection"/>
@@ -20,10 +20,10 @@
 <!--<span class="title" th:text="${msg}">Number</span>-->
 <!--</li>-->
 <!--</ul>-->
-<h2 class="indigo-text center" th:text="|#{search.result}${search}|"></h2>
+<h2 class="indigo-text center" th:text="|#{search.result}${keywords}|"></h2>
 <ul class="collection">
-  <li class="collection-item avatar" th:each="msg:${msgs}">
-    <span class="title" th:text="${msg}">Empty</span>
+  <li class="collection-item avatar" th:each="retult:${results}">
+    <span class="title" th:text="${retult}">Empty</span>
   </li>
 </ul>
 </body>

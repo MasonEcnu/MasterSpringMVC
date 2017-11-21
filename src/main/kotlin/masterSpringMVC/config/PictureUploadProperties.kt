@@ -16,7 +16,8 @@ class PictureUploadProperties {
   @Throws(IOException::class)
   fun setAnonymousPicture(anonymousPicture: String) {
     this.anonymousPicture = DefaultResourceLoader().getResource(anonymousPicture)
-    if (!this.anonymousPicture!!.file.isFile) {
+    val file = this.anonymousPicture?.file
+    if (file == null || !file.isFile) {
       throw IOException("File $anonymousPicture does not exist")
     }
   }
@@ -24,7 +25,8 @@ class PictureUploadProperties {
   @Throws(IOException::class)
   fun setUploadPath(uploadPath: String) {
     this.uploadPath = DefaultResourceLoader().getResource(uploadPath)
-    if (!this.uploadPath!!.file.isDirectory) {
+    val file = this.uploadPath?.file
+    if (file == null || !file.isDirectory) {
       throw IOException("Directory $uploadPath does not exist")
     }
   }
