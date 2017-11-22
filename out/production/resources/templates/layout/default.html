@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-  <meta name="viewport" content="with=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title th:text="#{defaultTitle}"></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Default title</title>
+
   <link href="/webjars/materializecss/0.100.2/css/materialize.css" type="text/css" rel="stylesheet"
         media="screen,projection"/>
 </head>
@@ -22,6 +24,16 @@
     </ul>
   </div>
 </nav>
+
+<div sec:authorize="isAuthenticated()">
+  <sec:authentication property="name"/>
+  <span th:text="#{default.auth.pre}">You are logged as </span> <b sec:authentication="name"></b> <span
+    th:text="#{default.auth.post}"> with roles </span><span sec:authentication="authorities"></span>
+  -
+  <form th:action="@{/logout}" method="post" style="display: inline-block">
+    <input type="submit" th:value="#{default.auth.logout}"/>
+  </form>
+</div>
 
 <section layout:fragment="content">
   <p th:text="#{default.section}"></p>

@@ -41,6 +41,11 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile 'org.springframework.boot:spring-boot-starter-social-twitter'
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.9.2'
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity3', version: '3.0.2.RELEASE'
 }
 
 task wrapper(type: Wrapper) {

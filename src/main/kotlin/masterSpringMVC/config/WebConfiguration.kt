@@ -15,11 +15,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor
 import org.springframework.web.servlet.i18n.SessionLocaleResolver
 import org.springframework.web.util.UrlPathHelper
+import springfox.documentation.spi.DocumentationType
+import springfox.documentation.spring.web.plugins.Docket
+import springfox.documentation.swagger2.annotations.EnableSwagger2
 
 import java.time.LocalDate
 import java.util.*
 
 @Configuration
+@EnableSwagger2
 class WebConfiguration : WebMvcConfigurerAdapter() {
   override fun addFormatters(registry: FormatterRegistry?) {
     registry?.addFormatterForFieldType(LocalDate::class.java, USLocalDateFormatter())
@@ -34,6 +38,7 @@ class WebConfiguration : WebMvcConfigurerAdapter() {
     val urlPathHelper = UrlPathHelper()
     urlPathHelper.setRemoveSemicolonContent(false)
     configurer?.urlPathHelper = urlPathHelper
+    configurer?.isUseRegisteredSuffixPatternMatch = true
   }
 
   @Bean
@@ -45,4 +50,9 @@ class WebConfiguration : WebMvcConfigurerAdapter() {
   override fun addInterceptors(registry: InterceptorRegistry) {
     registry.addInterceptor(localeChangeInterceptor())
   }
+
+  @Bean
+  fun userApi(): Docket = Docket(DocumentationType.SWAGGER_2).select().paths { path ->
+    path?.startsWith("/api/") ?: false
+  }.build()
 }
